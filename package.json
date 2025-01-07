@@ -1,13 +1,14 @@
 {
 	"name": "faucet-rpc",
-	"type": "common",
+	"type": "commonjs",
 	"engines":{
 		"node":">=16.0.0"
 	},
 	"main": "dist/server/index.js",
 	"scripts": {
+		"clean":"rm -rf dist",
 		"dev": " npx tsx src/server/index.ts",
-		"build": "tsc -build",
+		"build": "pnpm run clean && tsc -build",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"start": "node ./dist/server/index.js",
