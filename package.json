@@ -2,7 +2,7 @@
 	"name": "faucet-rpc",
 	"type": "commonjs",
 	"engines":{
-		"node":">=16.0.0"
+		"node":">=22.0.0"
 	},
 	"main": "dist/server/index.js",
 	"scripts": {
