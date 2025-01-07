@@ -1,6 +1,8 @@
 import express from 'express';
+import cors from 'cors'
 import { faucet } from './faucet';
 import * as dotenv from 'dotenv'
+import { faucet_config } from '../common/config';
 
 const app = express();
 
@@ -9,7 +11,7 @@ export interface ReqData  {
       recipient: string
   }
 };
-
+app.use(cors());
 app.use(express.json());
 
 app.post('/v1/gas', (req, res) => {
@@ -52,11 +54,32 @@ app.get('/v1/gas', (req, res) => {
     
 });
 
+const msg = `request faucet sui on testnet.
+the recipient address should be a address have at lease ${faucet_config.mainnet_balance_limit/1e9} sui balance on mainnet
+bash:
 
-let port = process.env.PORT || 3001;
-app.listen(port, () => {
-  console.log(`Server listening on port: ${port}`);
+curl --location --request POST 'http://localhost:3001/v1/gas' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "FixedAmountRequest": {
+        "recipient": "{sui address}"
+    }
+}`;
+
+app.get('/',(req,res)=>{
+  res.send(msg)
 });
+
+export default app;
+
+
+if (process.env.NODE_ENV !== 'production') {
+  const port = process.env.PORT || 3001;
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
+}
+
 
 
 

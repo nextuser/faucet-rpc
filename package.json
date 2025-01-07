@@ -1,6 +1,9 @@
 {
 	"name": "faucet-rpc",
-	"type": "module",
+	"type": "common",
+	"engines":{
+		"node":">=16.0.0"
+	},
 	"main": "dist/server/index.js",
 	"scripts": {
 		"dev": " npx tsx src/server/index.ts",
@@ -14,6 +17,7 @@
 		"@mysten/bcs": "^1.2.0",
 		"@mysten/sui": "^1.18.0",
 		"body-parser": "^1.20.3",
+		"cors": "^2.8.5",
 		"dotenv": "^16.4.7",
 		"express": "^4.21.2",
 		"fs": "0.0.1-security"
