@@ -1,8 +1,16 @@
-import express from 'express';
-import cors from 'cors'
-import { faucet } from './faucet';
-import * as dotenv from 'dotenv'
-import { faucet_config } from '../common/config';
+import { fstat } from "fs";
+
+let express = require('express');
+let cors = require('cors')
+//import { faucet } from './faucet';
+let {faucet} = require('./faucet')
+let dotenv = require('dotenv')
+
+let {faucet_config} = require('../common/config');
+var favicon = require('serve-favicon')
+var path = require('path')
+
+dotenv.config()
 
 const app = express();
 
@@ -13,6 +21,7 @@ export interface ReqData  {
 };
 app.use(cors());
 app.use(express.json());
+app.use(favicon(path.join(__dirname, '../../public', 'favicon.ico')))
 
 app.post('/v1/gas', (req, res) => {
   if(req.header('Content-Type')  == 'application/json'){
@@ -55,16 +64,23 @@ app.get('/v1/gas', (req, res) => {
 });
 
 const msg = `request faucet sui on testnet.
-the recipient address should be a address have at lease ${faucet_config.mainnet_balance_limit/1e9} sui balance on mainnet
-bash:
 
-curl --location --request POST 'http://localhost:3001/v1/gas' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "FixedAmountRequest": {
-        "recipient": "{sui address}"
-    }
-}`;
+<html>
+<body>
+<p>
+use json rpc to request faucet on test net 
+your address  need  have ${faucet_config.mainnet_balance_limit/1e9} SUI @mainnet:
+<div> 
+ <code>
+ curl --location --request POST 'http://faucet-rpc.vercel.com' --header 'Content-Type: application/json' --data-raw '{ "FixedAmountRequest": { "recipient": "0xafe36044ef56d22494bfe6231e78dd128f097693f2d974761ee4d649e61f5fa2" } 
+ }'
+
+</code>
+</div>
+</p>
+</body>
+</html>
+`;
 
 app.get('/',(req,res)=>{
   res.send(msg)
