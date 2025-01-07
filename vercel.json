@@ -7,9 +7,18 @@
     }
   ],
   "routes": [
+    
+    {
+      "src": "/v1/gas",
+      "methods": ["POST","GET"],
+      "dest": "dist/server/index.js"
+    },
     {
       "src": "/(.*)",
+      "methods":["GET"],
       "dest": "dist/server/index.js"
     }
+
   ]
+
 }

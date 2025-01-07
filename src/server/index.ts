@@ -45,7 +45,6 @@ app.post('/v1/gas', (req, res) => {
 
 
 app.get('/v1/gas', (req, res) => {
-  if(req.header('Content-Type')  == 'application/json'){
     let recipient = req.query['recipient'] as unknown as string
     console.log('recipient=',recipient);
     let ret = faucet(recipient)
@@ -56,10 +55,6 @@ app.get('/v1/gas', (req, res) => {
       console.log(err);
       res.json(err);
     });
-
-  } else{
-    console.log("error Content-Type,header:" + req.headers);
-  }
     
 });
 
@@ -72,9 +67,8 @@ use json rpc to request faucet on test net
 your address  need  have ${faucet_config.mainnet_balance_limit/1e9} SUI @mainnet:
 <div> 
  <code>
- curl --location --request POST 'https://faucet-rpc.vercel.com/v1/gas' --header 'Content-Type: application/json' --data-raw '{ "FixedAmountRequest": { "recipient": "0xafe36044ef56d22494bfe6231e78dd128f097693f2d974761ee4d649e61f5fa2" } 
- }'
-
+ https://faucet-rpc.vercel.app/v1/gas?recipient=0xafe36044ef56d22494bfe6231e78dd128f097693f2d974761ee4d649e61f5fa2 
+  
 </code>
 </div>
 </p>
