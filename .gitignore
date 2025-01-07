@@ -1,0 +1,7 @@
+dist
+node_modules
+.history
+*.bak
+.out
+.err
+pnpm-lock.yaml

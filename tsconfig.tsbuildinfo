@@ -1,0 +1,1 @@
+{"root":["./src/common/config.ts","./src/common/type.ts","./src/server/faucet.ts","./src/server/faucet_list.ts","./src/server/index.ts","./src/server/local_key.ts"],"version":"5.7.2"}

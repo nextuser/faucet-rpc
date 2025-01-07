@@ -1,0 +1,26 @@
+node:internal/modules/cjs/loader:1410
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '../src/config'
+Require stack:
+- /home/ljl/work/sui/dapp/faucet-rpc/server/faucet.ts
+- /home/ljl/work/sui/dapp/faucet-rpc/server/rpc_server.ts
+    at node:internal/modules/cjs/loader:1410:15
+    at nextResolveSimple (/home/ljl/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/register-DCnOAxY2.cjs:3:942)
+    at /home/ljl/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/register-DCnOAxY2.cjs:2:2550
+    at /home/ljl/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/register-DCnOAxY2.cjs:2:1624
+    at resolveTsPaths (/home/ljl/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/register-DCnOAxY2.cjs:3:760)
+    at /home/ljl/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/register-DCnOAxY2.cjs:3:1038
+    at m._resolveFilename (file:///home/ljl/.npm/_npx/fd45a72a545557e9/node_modules/tsx/dist/register-RyGUjI6j.mjs:1:789)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)
+    at Function._load (node:internal/modules/cjs/loader:1215:37) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/ljl/work/sui/dapp/faucet-rpc/server/faucet.ts',
+    '/home/ljl/work/sui/dapp/faucet-rpc/server/rpc_server.ts'
+  ]
+}
+
+Node.js v23.5.0
