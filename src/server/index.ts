@@ -72,7 +72,7 @@ use json rpc to request faucet on test net
 your address  need  have ${faucet_config.mainnet_balance_limit/1e9} SUI @mainnet:
 <div> 
  <code>
- curl --location --request POST 'http://faucet-rpc.vercel.com' --header 'Content-Type: application/json' --data-raw '{ "FixedAmountRequest": { "recipient": "0xafe36044ef56d22494bfe6231e78dd128f097693f2d974761ee4d649e61f5fa2" } 
+ curl --location --request POST 'https://faucet-rpc.vercel.com/v1/gas' --header 'Content-Type: application/json' --data-raw '{ "FixedAmountRequest": { "recipient": "0xafe36044ef56d22494bfe6231e78dd128f097693f2d974761ee4d649e61f5fa2" } 
  }'
 
 </code>
