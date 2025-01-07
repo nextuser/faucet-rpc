@@ -4,13 +4,15 @@
       "module": "commonjs",
       "outDir": "./dist",
       "rootDir": "./src",
+      "noImplicitAny": false,
       "strict": true,
       "esModuleInterop": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
+      
       //"moduleResolution": "node16",
       "moduleSuffixes": [".js", ""]
     },
-    "include": ["src/**/*"],
+    "include": ["public/**/*","src/**/*"],
     "exclude": ["node_modules"]
   }
